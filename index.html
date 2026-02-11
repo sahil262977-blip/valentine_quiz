@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Very Serious Valentine Research 💘</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f5;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    button {
+      padding: 12px 20px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e63956;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>💘 Very Serious Valentine Research</h1>
+<p>Answer honestly. There are no wrong answers. (There are.)</p>
+
+<form id="valentineForm">
+
+  <div class="question">
+    <p>1️⃣ Where did we first really connect?</p>
+    <input type="radio" name="q1" value="Metro"> During metro rides after work<br>
+    <input type="radio" name="q1" value="Online meet"> Online meet<br>
+    <input type="radio" name="q1" value="Friends pushed us"> Friends pushed us<br>
+    <input type="radio" name="q1" value="Boss 😏"> You just wanted to sleep with me because I was your boss 😏
+  </div>
+
+  <div class="question">
+    <p>2️⃣ What’s our comfort activity as a couple?</p>
+    <input type="radio" name="q2" value="Travel"> Travel and explore<br>
+    <input type="radio" name="q2" value="Cafes"> Cafes<br>
+    <input type="radio" name="q2" value="Bike rides"> Bike rides<br>
+    <input type="radio" name="q2" value="Ghapa ghap"> Ghapa ghap 😌
+  </div>
+
+  <!-- Repeat this structure for all questions -->
+
+  <div class="question">
+    <p>1️⃣4️⃣ After answering all this very serious research, will you be my Valentine?</p>
+    <input type="radio" name="q14" value="Yes"> Yes ❤️<br>
+    <input type="radio" name="q14" value="Obviously"> Obviously<br>
+    <input type="radio" name="q14" value="Already was"> I thought I already was<br>
+    <input type="radio" name="q14" value="Chocolates"> Yes, but I expect chocolates
+  </div>
+
+  <button type="submit">Submit 💌</button>
+
+</form>
+
+<script>
+document.getElementById("valentineForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  try {
+    await fetch("https://your-backend-endpoint.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    alert("Submission received 💘");
+  } catch (error) {
+    alert("Something went wrong 😢");
+  }
+});
+</script>
+
+</body>
+</html>
