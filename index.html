@@ -166,7 +166,16 @@ button:hover { background: #e63956; }
 <script>
 document.getElementById("valentineForm").addEventListener("submit", function(e) {
 e.preventDefault();
-alert("Submission received 💘 (Data not stored yet)");
+fetch("https://script.google.com/macros/s/AKfycbxkbf7RHVQgTA6o7L5hY4KINW14xYauRJUk8HvMrKIDtCmwFzpXNAdPCgIoryYXd7BF/exec", {
+  method: "POST",
+  body: JSON.stringify(data)
+})
+.then(() => {
+  alert("Submission received 💘");
+})
+.catch(() => {
+  alert("Something went wrong 😢");
+});
 });
 </script>
 
